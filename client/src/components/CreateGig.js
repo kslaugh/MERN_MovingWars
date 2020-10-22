@@ -10,7 +10,7 @@ export default function CreateGig (){
     const[errors,setErrors]=useState([])
 
     useEffect(()=>{
-        axios.get('http://3.137.191.27/gigs/')
+        axios.get('http://localhost:8000/api/gigs')
         .then(response=>setGigs(response.data))
         .catch((e)=>{
             const errors=e.response.data.errors;
@@ -22,7 +22,7 @@ export default function CreateGig (){
     })
     function handleSubmit(event){
 
-        axios.post('http://localhost:8080/gigs/',{
+        axios.post('http://localhost:8000/api/gig',{
             title:event.title,
             description:event.description
         })

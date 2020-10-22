@@ -7,7 +7,7 @@ export default function SingleGig(props){
     const[gig,setGig]=useState(null)
 
     useEffect(()=>{
-        axios.get('http://localhost:8080/gigs/'+props.id)
+        axios.get('http://localhost:8000/api/gig/'+props.id)
         .then(response=>setGig(response.data));
     },[props.id]);
 

@@ -7,14 +7,14 @@ export default function EditGig ({id}){
     const [gig,setGig]=useState('')
 
     useEffect(()=>{
-        axios.get('http://localhost:8080/gigs/'+id)
+        axios.get('http://localhost:8000/api/gigs'+id)
         .then(response=>{
             setGig(response.data)
         })
     },[id])
 
     function handleSubmit(event){
-        axios.post('http://localhost:8080/gigs/',event)
+        axios.post('http://localhost:8000/api/gig',event)
         .then(()=>navigate('/'))
         .catch(console.log)
 
