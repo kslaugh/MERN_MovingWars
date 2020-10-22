@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
-
+import CreateGig from "./components/CreateGig";
+import {Router,Redirect} from "@reach/router";
+import SingleGig from "./components/SingleGig";
+import EditGig from './components/EditGig'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <CreateGig path="/"/>
+        <SingleGig path="/:id"/>
+        <EditGig path="/:id/edit"/>
+        <Redirect from="/processing" to='/' noThrow="true" />
+      </Router>
     </div>
   );
 }
